@@ -1,43 +1,2478 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Webdrop - Drag and Drop Website Builder</title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link id="style1" rel="stylesheet" href="./CSS/minime.css" />
+    <!--If you set up  ./CSS/empty.css as default, it will start big menu first-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <style id="style">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    </style>
+
+</head>
+
+<body>
+    <nav id="nav">
+        <div id="nav-left" class="centerIcon column1_mini textCenter">
+            <i id="loGo" class="fas fa-tint"><span id="logotext" class="displayNone">Webdrop</span></i>
+        </div>
+
+        <div id="nav-right">
+
+            <div id="left">
+                <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
+                <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
+            </div>
+
+            <div id="right">
+
+                <div id="admin-buttons">
+
+                    <i id="preview-eye" class="button far fa-eye previ_ew button" data-toggle="tooltip" data-trigger="hover" title="Preview Mode"></i>
+                    <i onclick="hide_leftmenu()" class="button fas fa-chevron-left hide_leftmenu" data-toggle="tooltip" data-trigger="hover" title="Show/Hide Left column"></i>
+                    <i onclick="hide_rightmenu()" class="button fas fa-chevron-right hide_rightmenu" data-toggle="tooltip" data-trigger="hover" title="Hide/Show Right column"></i>
+
+                    <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-trigger="hover" title="Edit document"></i>
+                    <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip" data-trigger="hover" title="Outline elements"></i>
+                    <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-trigger="hover" title="Download code"></i>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </nav>
+
+    <div class="row">
+
+        <div id="column1" class="column1_mini">
+            <!-- Snippet : Ul inside Col1-->
+            <ul id="sidebar_menu">
+
+                <!--Proper accordion yay!-->
+                <li data="Basic Elem">
+                    <div id="parent" class="accordion dd-button centerIcon textCenter">
+                        <i class="fas fa-th-list"></i><span id="logotext" class="displayNoneB">Basic Elem</span>
+                    </div>
+
+                    <div class="panel">
+                        <!--Hidden under accordion-->
+                        <ul class="dd-menu">
+
+                            <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.." title="Type in a component" style="width: 100%;">
+
+
+                            <ul id="myUL">
+
+                                <li>
+                                    <h5>Container ✔️</h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+      
+                          <div class="container __placeholder" style="margin-top:15px;">
+                          </div>
+                          '>
+                                            <img src="/IMG/components/center-container.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Container</p>
+                    </span>
+                                    </div>
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>Grid ✔️ </h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          
+                          <div class="container __placeholder" data-myattribute="unDouex" style="margin-top:15px;">
+                              <div class="row">
+                                <div class="col-sm">
+                                    <div id="fr-cell"">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div id="fr-cell">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          '>
+                                            <img src="/IMG/components/column-2.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Two column grid</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="container __placeholder" style="margin-top:15px;">
+                              <div class="row">
+                                <div class="col-sm">
+                                    <div id="fr-cell">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div id="fr-cell">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div id="fr-cell">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          '>
+                                            <img src="/IMG/components/column-3.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Three columns grid</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="container __placeholder" style="margin-top:15px;">
+                              <div class="row">
+                                <div class="col-6">
+                                    <div id="fr-cell">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div id="fr-cell">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div id="fr-cell">
+                                      <div class="txt">Drop your component here</div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          '>
+                                            <img src="">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Uneven grid</p>
+                    </span>
+                                    </div>
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>Image ✔️</h5>
+
+                                    <div class="col-min" style>
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+      
+                          <div class="container __placeholder" style="margin-top: 15px;">
+                            <img id="__upload" src="/IMG/components/img.svg" style="height:192px;">
+                          </div>
+                          '>
+                                            <img src="/IMG/components/img_notext.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>image</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+      
+                          <div class="container __placeholder">
+                            <img src="/IMG/components/img.svg" style="height:85px;">
+                              <div class="fr-cell">
+                                  <div class="txt">Double click or drop your SVG above</div>
+                              </div>
+      
+                          </div>
+                          '>
+                                            <img src="">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>SVG ❌</p>
+                    </span>
+
+                                    </div>
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>Video ✔️</h5>
+
+                                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+      
+                        <div class="container" style="margin-top: 15px;">
+                            <div class="videoWrapper">
+                                <iframe width="560" height="349" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        '>
+                                        <img src="/IMG/components/ytb.svg">
+
+                                    </div>
+                                    <span class="search_me">
+                    <p>Youtube video</p>
+                  </span>
+
+                                </li>
+
+                                <li>
+                                    <h5>Text ✔️</h5>
+
+                                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+      
+                        <div class="container" style="margin-top: 15px;">
+                          <h4>Headline Four</h4>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, debitis pariatur? Animi commodi iusto autem veritatis minima consequuntur hic amet possimus similique quis, odit nemo saepe eaque, asperiores dolor? Delectus?Laudantium consectetur eligendi alias, doloremque nam ipsam? Eligendi possimus molestiae est corrupti consequuntur corporis sequi exercitationem illo, ut cumque beatae commodi soluta voluptatibus totam optio ullam sint consectetur cupiditate in!</p>
+                        </div>
+                        '>
+                                        <img src="/IMG/components/text.svg">
+
+                                    </div>
+                                    <span class="search_me">
+                    <p>Text block</p>
+                  </span>
+
+                                </li>
+
+                                <li>
+                                    <h5>Slideshows </h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="wrapper">
+                              <input checked type=radio name="slider" id="slide1" />
+                              <input type=radio name="slider" id="slide2" />
+                              <input type=radio name="slider" id="slide3" />
+                              <input type=radio name="slider" id="slide4" />
+                              <input type=radio name="slider" id="slide5" />
+                            
+                              <div class="slider-wrapper">
+                                <div class=inner>
+                                  <article>
+                                    <div class="info top-left">
+                                      <h3>Malacca</h3></div>
+                                    <img src="https://farm9.staticflickr.com/8059/28286750501_dcc27b1332_h_d.jpg" />
+                                  </article>
+                            
+                                  <article>
+                                    <div class="info bottom-right">
+                                      <h3>Cameron Highland</h3></div>
+                                    <img src="https://farm6.staticflickr.com/5812/23394215774_b76cd33a87_h_d.jpg" />
+                                  </article>
+                            
+                                  <article>
+                                    <div class="info bottom-left">
+                                      <h3>New Delhi</h3></div>
+                                    <img src="https://farm8.staticflickr.com/7455/27879053992_ef3f41c4a0_h_d.jpg" />
+                                  </article>
+                            
+                                  <article>
+                                    <div class="info top-right">
+                                      <h3>Ladakh</h3></div>
+                                    <img src="https://farm8.staticflickr.com/7367/27980898905_72d106e501_h_d.jpg" />
+                                  </article>
+                            
+                                  <article>
+                                    <div class="info bottom-left">
+                                      <h3>Nubra Valley</h3></div>
+                                    <img src="https://farm8.staticflickr.com/7356/27980899895_9b6c394fec_h_d.jpg" />
+                                  </article>
+                                </div>
+                                <!-- .inner -->
+                              </div>
+                              <!-- .slider-wrapper -->
+                            
+                              <div class="slider-prev-next-control">
+                                <label for=slide1></label>
+                                <label for=slide2></label>
+                                <label for=slide3></label>
+                                <label for=slide4></label>
+                                <label for=slide5></label>
+                              </div>
+                              <!-- .slider-prev-next-control -->
+                            
+                              <div class="slider-dot-control">
+                                <label for=slide1></label>
+                                <label for=slide2></label>
+                                <label for=slide3></label>
+                                <label for=slide4></label>
+                                <label for=slide5></label>
+                              </div>
+                              <!-- .slider-dot-control -->
+                            </div>
+              
+                        
+                          '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Responsive Css Slider</p>
+                    </span>
+
+                                    </div>
+
+
+
+                                    <br style="clear:both;" />
+
+                                </li>
+
+                                <li>
+                                    <h5>2 columns ✔️</h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="container __placeholder" data-myattribute="unDouex">
+                              <div class="row">
+                                <div class="col-sm">
+                                  
+                                  <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                  
+                                  <h4>Headline Four</h4>
+                                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, aperiam, iste veritatis minus cumque sequi doloribus libero repellat nulla quam accusantium ullam. Omnis alias sed illo aut porro nesciunt dolor.Dolorum delectus tenetur debitis possimus, veritatis suscipit molestiae, nisi magnam ullam corporis minus voluptate sed! Tempore, rem. Impedit, culpa. Est distinctio accusamus illo. Provident officiis qui voluptate nobis, non magnam.</p>
+                                
+                                </div>
+
+                                <div class="col-sm">
+                                  
+                                  <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                        
+                                  <h4>Headline Four</h4>
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                
+                                </div>
+                                
+                              </div>
+                            </div>
+                          '>
+                                            <img src="/IMG/components/two-col-img-text.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>2 Col Img & Text</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="container __placeholder" data-myattribute="unDouex">
+                                <div class="row">
+                                  <div class="col-sm">
+                                    
+                                    <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px; margin-top: 15px;">
+                                    
+                                  
+                                  </div>
+    
+                                  <div class="col-sm" style="margin-top: 15px;">
+                                    
+                                    <h4>Headline Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            '>
+                                            <img src="/IMG/components/img-text-2col.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>2 Col Img & Text</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min ">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="container __placeholder" data-myattribute="unDouex">
+                                <div class="row">
+
+                                  <div class="col-sm" style="margin-top: 15px;">
+                                    
+                                    <h4>Headline Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  
+                                  </div>
+
+                                  <div class="col-sm">    
+                                      <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px; margin-top: 15px;">
+                                    </div>
+                                  
+                                </div>
+                              </div>
+                            '>
+                                            <img src="/IMG/components/text-img-2-col.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Text & Image 2 Col</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="container __placeholder" data-myattribute="unDouex" margin-top: 15px;>
+                                <div class="row">
+                                  <h1 style="padding-left: 15px; padding-bottom: 15px;">Header One</h1>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-sm">
+                                    <h4>Header Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  </div>
+    
+                                  <div class="col-sm">
+                                    
+                                    <h4>Header Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            '>
+                                            <img src="/IMG/components/header-two-col-text.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Header 2 Col Text</p>
+                    </span>
+                                    </div>
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>3 columns ✔️</h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="container __placeholder" data-myattribute="unDouex">
+                              <div class="row">
+                                <div class="col-sm">
+                                  
+                                  <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                  
+                                  <h4>Headline Four</h4>
+                                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, aperiam, iste veritatis minus cumque sequi doloribus libero repellat nulla quam accusantium ullam. Omnis alias sed illo aut porro nesciunt dolor.Dolorum delectus tenetur debitis possimus, veritatis suscipit molestiae, nisi magnam ullam corporis minus voluptate sed! Tempore, rem. Impedit, culpa. Est distinctio accusamus illo. Provident officiis qui voluptate nobis, non magnam.</p>
+                                
+                                </div>
+
+                                <div class="col-sm">
+                                  
+                                  <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                        
+                                  <h4>Headline Four</h4>
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                
+                                </div>
+
+                                <div class="col-sm">
+                                  
+                                    <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                          
+                                    <h4>Headline Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  
+                                  </div>
+                                
+                              </div>
+                            </div>
+                          '>
+                                            <img src="/IMG/components/three-col-img-text.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>3 Col Image & Text</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="container __placeholder" data-myattribute="unDouex" style="padding-top:15px; padding-bottom: 15px;">
+                              <div class="row">
+                                <div class="col-sm">
+                                  <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                </div>
+
+                                <div class="col-sm">
+                                  <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                </div>
+
+                                <div class="col-sm">
+                                    <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                </div>
+                              </div>
+
+                              <div class="row" style="padding-top:30px;">
+                                  <div class="col-sm">
+                                    <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                  </div>
+    
+                                  <div class="col-sm">
+                                    <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                  </div>
+    
+                                  <div class="col-sm">
+                                      <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                  </div>
+                                </div>
+                            </div>
+                          '>
+                                            <img src="/IMG/components/gallery.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Gallery</p>
+                    </span>
+
+                                    </div>
+
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>4 columns ✔️ </h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="container __placeholder" data-myattribute="unDouex" style="margin-top: 15px;">
+                              <div class="row">
+                                <div class="col-sm">
+                                  
+                                  <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                  
+                                  <h4>Headline Four</h4>
+                                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, aperiam, iste veritatis minus cumque sequi doloribus libero repellat nulla quam accusantium ullam. Omnis alias sed illo aut porro nesciunt dolor.Dolorum delectus tenetur debitis possimus, veritatis suscipit molestiae, nisi magnam ullam corporis minus voluptate sed! Tempore, rem. Impedit, culpa. Est distinctio accusamus illo. Provident officiis qui voluptate nobis, non magnam.</p>
+                                
+                                </div>
+
+                                <div class="col-sm">
+                                  
+                                  <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                        
+                                  <h4>Headline Four</h4>
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                
+                                </div>
+
+                                <div class="col-sm">
+                                  
+                                    <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                          
+                                    <h4>Headline Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  
+                                </div>
+
+                                <div class="col-sm">
+                                  
+                                    <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                          
+                                    <h4>Headline Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  
+                                </div>
+                                
+                              </div>
+                            </div>
+                          '>
+                                            <img src="/IMG/components/4-col.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>4 Col Image & Text</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="container __placeholder" data-myattribute="unDouex" style="margin-top: 15px;">
+                                <div class="row">
+                                    <div class="col-sm">
+                                      <h1>Headline One</h1>
+                                      <p>This is a paragraph tag. If you need the same layout but 2/3 columns, you can remove one or two from the next row. The columns will auto-resize to fit! </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                  <div class="col-sm">
+                                    
+                                    <img class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                                    
+                                    <h4>Headline Four</h4>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, aperiam, iste veritatis minus cumque sequi doloribus libero repellat nulla quam accusantium ullam. Omnis alias sed illo aut porro nesciunt dolor.Dolorum delectus tenetur debitis possimus, veritatis suscipit molestiae, nisi magnam ullam corporis minus voluptate sed! Tempore, rem. Impedit, culpa. Est distinctio accusamus illo. Provident officiis qui voluptate nobis, non magnam.</p>
+                                  
+                                  </div>
+    
+                                  <div class="col-sm">
+                                    
+                                    <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                          
+                                    <h4>Headline Four</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                  
+                                  </div>
+    
+                                  <div class="col-sm">
+                                    
+                                      <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                            
+                                      <h4>Headline Four</h4>
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                    
+                                  </div>
+    
+                                  <div class="col-sm">
+                                    
+                                      <img  class="__placeholder" src="/IMG/components/img.svg" style="height:192px;">
+                            
+                                      <h4>Headline Four</h4>
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptate illum hic labore inventore, nostrum fugit enim odio sapiente sed. Voluptates nihil repellat inventore distinctio numquam id eligendi unde dolore.Delectus iste itaque, ut facilis blanditiis non vero recusandae asperiores qui atque libero distinctio commodi aspernatur voluptas nulla alias aliquam, praesentium eveniet dignissimos accusantium? Nulla laboriosam tempora odio consequatur similique.</p>
+                                    
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            '>
+                                            <img src="/IMG/components/header1-4col.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Header & 4 Col</p>
+                    </span>
+
+                                    </div>
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>Forms ✔️</h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+        
+                          <div class="container" style="margin-top: 15px;">
+
+                            <h2 class="text-center" style="margin-bottom:30px;">We will notify you when we launch.</h2>
+                              <form class="form-inline justify-content-center">
+                                  <label class="sr-only" for="inlineFormInputName2">Name</label>
+                                  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Your name">
+                                
+                                  <label class="sr-only" for="inlineFormInputGroupEmail2">Email</label>
+                                  <div class="input-group mb-2 mr-sm-2">
+                                    <input type="email" class="form-control" id="inlineFormInputGroupEmail2" placeholder="Email">
+                                  </div>
+
+                                  <button type="submit" class="btn btn-primary mb-2">Notify Me</button>
+                              </form>
+
+                          </div>
+                          '>
+                                            <img src="/IMG/components/form-1.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Inline Form</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+          
+                            <div class="container" style="margin-top: 15px; ">
+    
+                              <h2 class="text-center" style="margin-bottom:30px;">Get news in your email</h2>
+
+                                <form class="justify-content-center">
+
+                                    <label class="sr-only" for="inlineFormInputGroupEmail2">Email</label>
+
+                                    <div class="form-row text-center">
+                                        <div class="col-6 mb-2 mx-auto">
+                                          <input type="email" class="form-control" id="inlineFormInputGroupEmail2" placeholder="Email">
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-row text-center">
+                                        <div class="col-6 mx-auto">
+                                            <button type="submit" class="btn btn-primary btn-block">Subscribe Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+    
+                            </div>
+                            '>
+                                            <img src="/IMG/components/form-2.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Block Form</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                  <span class="anchor" id="formLogin"></span> 
+                            
+                                <!-- form card login -->
+                                <div class="card card-outline-secondary">
+                                  <div class="card-header">
+                                    <h3 class="mb-0">Login</h3>
+                                  </div>
+                                  <div class="card-body">
+                                    <form autocomplete="off" class="form" id="formLogin" name="formLogin" role="form">
+                                      <div class="form-group">
+                                        <label for="uname1">Username</label> 
+                                        <input class="form-control" id="uname1" name="uname1" required="" type="text">
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Password</label> 
+                                        <input autocomplete="new-password" class="form-control" id="pwd1" required="" type="password">
+                                      </div>
+                                      <div class="form-check small">
+                                        <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox"> 
+                                          <span>Remember me on this computer</span>
+                                        </label>
+                                      </div>
+                                      <button class="btn btn-success btn-lg float-right" type="button">Login</button>
+                                    </form>
+                                  </div><!--/card-block-->
+                                </div><!-- /form card login -->
+                                
+                              </div>
+                            </div>
+                            '>
+                                            <img src="/IMG/components/login-form.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Login Form</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                  <span class="anchor" id="formRegister"></span>
+                                  <!-- form card register -->
+                                  <div class="card card-outline-secondary">
+                                    <div class="card-header">
+                                      <h3 class="mb-0">Sign Up</h3>
+                                    </div>
+                                    <div class="card-body">
+                                      <form autocomplete="off" class="form" role="form">
+                                        <div class="form-group">
+                                          <label for="inputName">Name</label> 
+                                          <input class="form-control" id="inputName" placeholder="Full name" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="inputEmail3">Email</label> 
+                                          <input class="form-control" id="inputEmail3" placeholder="Email" required="" type="email">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="inputPassword3">Password</label> 
+                                          <input class="form-control" id="inputPassword3" placeholder="Password" required="" type="password"> 
+                                          <small class="form-text text-muted" id="passwordHelpBlock">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</small>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="inputVerify3">Verify</label> 
+                                          <input class="form-control" id="inputVerify3" placeholder="Password (again)" required="" type="password">
+                                        </div>
+                                        <div class="form-group">
+                                          <button class="btn btn-success btn-lg float-right" type="submit">Register</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div><!-- /form card register -->
+                                </div>
+                              </div>
+                            '>
+                                            <img src="/IMG/components/Sign-up.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Sign-Up Form</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                  <span class="anchor" id="formChangePassword"></span>
+                                  <hr class="mb-5">
+                                  <!-- form card change password -->
+                                  <div class="card card-outline-secondary">
+                                    <div class="card-header">
+                                      <h3 class="mb-0">Change Password</h3>
+                                    </div>
+                                    <div class="card-body">
+                                      <form autocomplete="off" class="form" role="form">
+                                        <div class="form-group">
+                                          <label for="inputPasswordOld">Current Password</label> 
+                                          <input class="form-control" id="inputPasswordOld" required="" type="password">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="inputPasswordNew">New Password</label> 
+                                          <input class="form-control" id="inputPasswordNew" required="" type="password"> 
+                                          <small class="form-text text-muted" id="passwordHelpBlock">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</small>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="inputPasswordNewVerify">Verify</label> 
+                                          <input class="form-control" id="inputPasswordNewVerify" required="" type="password"> 
+                                          <span class="form-text small text-muted">To confirm, type the new password again.</span>
+                                        </div>
+                                        <div class="form-group">
+                                          <button class="btn btn-success btn-lg float-right" type="submit">Save</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div><!-- /form card change password -->
+                                </div>
+                              </div>
+                            '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Change Password</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                  <span class="anchor" id="formResetPassword"></span>
+                                  <hr class="mb-5">
+                                  <!-- form card reset password -->
+                                  <div class="card card-outline-secondary">
+                                    <div class="card-header">
+                                      <h3 class="mb-0">Password Reset</h3>
+                                    </div>
+                                    <div class="card-body">
+                                      <form autocomplete="off" class="form" role="form">
+                                        <div class="form-group">
+                                          <label for="inputResetPasswordEmail">Email</label> 
+                                          <input class="form-control" id="inputResetPasswordEmail" required="" type="email"> 
+                                          <span class="form-text small text-muted" id="helpResetPasswordEmail">Password reset instructions will be sent to this email address.</span>
+                                        </div>
+                                        <div class="form-group">
+                                          <button class="btn btn-success btn-lg float-right" type="submit">Reset</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div><!-- /form card reset password -->
+                                </div>
+                              </div>
+
+                            '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Password Reset</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="row justify-content-center" style="margin-top: 15px;">
+                                <div class="col-md-6">
+                                  <span class="anchor" id="formPayment"></span>
+
+                                  <!-- form card cc payment -->
+                                  <div class="card card-outline-secondary">
+                                    <div class="card-body">
+                                      <h3 class="text-center">Credit Card Payment</h3>
+                                      <hr>
+                                      <div class="alert alert-info">
+                                        <a class="close" data-dismiss="alert" href="#">×</a>CVC code is required.
+                                      </div>
+                                      <form autocomplete="off" class="form" role="form">
+                                        <div class="form-group">
+                                          <label for="cc_name">Card Holder&quot;s Name</label> 
+                                          <input class="form-control" id="cc_name" pattern="\w+ \w+.*" required="required" title="First and last name" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                          <label>Card Number</label> 
+                                          <input autocomplete="off" class="form-control" maxlength="20" pattern="\d{16}" required="" title="Credit card number" type="text">
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-md-12">Card Exp. Date</label>
+                                          <div class="col-md-4">
+                                            <select class="form-control" name="cc_exp_mo" size="0">
+                                              <option value="01">
+                                                01
+                                              </option>
+                                              <option value="02">
+                                                02
+                                              </option>
+                                              <option value="03">
+                                                03
+                                              </option>
+                                              <option value="04">
+                                                04
+                                              </option>
+                                              <option value="05">
+                                                05
+                                              </option>
+                                              <option value="06">
+                                                06
+                                              </option>
+                                              <option value="07">
+                                                07
+                                              </option>
+                                              <option value="08">
+                                                08
+                                              </option>
+                                              <option value="09">
+                                                09
+                                              </option>
+                                              <option value="10">
+                                                10
+                                              </option>
+                                              <option value="11">
+                                                11
+                                              </option>
+                                              <option value="12">
+                                                12
+                                              </option>
+                                            </select>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <select class="form-control" name="cc_exp_yr" size="0">
+                                              <option>
+                                                2016
+                                              </option>
+                                              <option>
+                                                2017
+                                              </option>
+                                              <option>
+                                                2018
+                                              </option>
+                                              <option>
+                                                2019
+                                              </option>
+                                              <option>
+                                                2020
+                                              </option>
+                                              <option>
+                                                2021
+                                              </option>
+                                              <option>
+                                                2022
+                                              </option>
+                                              <option>
+                                                2023
+                                              </option>
+                                              <option>
+                                                2024
+                                              </option>
+                                              <option>
+                                                2025
+                                              </option>
+                                            </select>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <input autocomplete="off" class="form-control" maxlength="3" pattern="\d{3}" placeholder="CVC" required="" title="Three digits on the back of your card" type="text">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <label class="col-md-12">Amount</label>
+                                        </div>
+                                        <div class="form-inline">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                              $
+                                            </div>
+                                            <input class="form-control text-right" id="exampleInputAmount" placeholder="39" type="text">
+                                            <div class="input-group-addon">
+                                              .00
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group row">
+                                          <div class="col-md-6">
+                                            <button class="btn btn-default btn-lg btn-block" type="reset">Cancel</button>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <button class="btn btn-success btn-lg btn-block" type="submit">Submit</button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div><!-- /form card cc payment -->
+                                </div>
+                            </div>
+                            '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Card Payment</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <div class="row justify-content-center" style="margin-top: 15px;">
+                                <div class="col-md-6 sm-12">
+                                  <span class="anchor" id="formContact"></span>
+                                  
+                                  <!-- form contact -->
+                                  <div class="card card-outline-secondary">
+                                    <div class="card-header">
+                                      <h3 class="mb-0">Contact</h3>
+                                    </div>
+                                    <div class="card-body">
+                                      <form autocomplete="off" class="form" role="form">
+                                        <fieldset>
+                                          <label class="mb-0" for="name2">Name</label>
+                                          <div class="row mb-1">
+                                            <div class="col-lg-12">
+                                              <input class="form-control" id="name2" name="name2" required="" type="text">
+                                            </div>
+                                          </div>
+                                          <label class="mb-0" for="email2">Email</label>
+                                          <div class="row mb-1">
+                                            <div class="col-lg-12">
+                                              <input class="form-control" id="email2" name="email2" required="" type="text">
+                                            </div>
+                                          </div>
+                                          <label class="mb-0" for="message2">Message</label>
+                                          <div class="row mb-1">
+                                            <div class="col-lg-12">
+                                              <textarea class="form-control" id="message2" name="message2" required="" rows="6"></textarea>
+                                            </div>
+                                          </div>
+                                          <button class="btn btn-secondary btn-lg float-right" type="submit">Send Message</button>
+                                        </fieldset>
+                                      </form>
+                                    </div>
+                                  </div><!-- /form contact -->
+                                </div><!--/col-->
+                              </div>
+                            '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Contact Form</p>
+                    </span>
+                                    </div>
+
+
+                                    <br style="clear:both;" />
+
+                                </li>
+
+                                <li>
+                                    <h5>HTML ❌</h5>
+
+                                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+        
+                        <div class="container __placeholder">
+        
+                        </div>
+                        '>
+                                        <img src="">
+
+                                    </div>
+                                    <span class="search_me">
+                    <p>Custom HTML</p>
+                  </span>
+
+                                </li>
+
+
+
+                            </ul>
+                        </ul>
+                    </div>
+
+
+                </li>
+
+
+                <li data="Ready-Made">
+                    <div class="dd-button centerIcon accordion textCenter">
+                        <i class="fas fa-puzzle-piece"></i><span id="logotext" class="displayNoneB">Ready-Made</span>
+                    </div>
+
+                    <div class="panel">
+
+                        <ul class="dd-menu">
+
+                            <!-- <input type="text" id="myInput1" onkeyup="instantSearch()" placeholder="Search for components.." title="Type in a component" style="width: 100%;"> -->
+
+                            <ul id="myUL">
+
+                                <li>
+                                    <h5 style="margin-top: 10px;">Navigation ✔️ </h5>
+                                    <!--You can do navbar-expand-lg aswel-->
+                                    <div class="col-min">
+
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                              <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                                <a class="navbar-brand" href="#">Expand at xl</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            
+                                <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li>
+                                    </ul>
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </nav>
+
+                              '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Nav expand xl</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                              <nav class="navbar navbar-dark" style="background: rgb(2,0,36);
+                              background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(41,121,9,1) 0%, rgba(39,191,222,1) 100%);">
+                                <a class="navbar-brand" href="#">Never expand</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentNV" aria-controls="navbarSupportedContentNV" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            
+                                <div class="collapse navbar-collapse" id="navbarSupportedContentNV">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownNV">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li>
+                                    </ul>
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </nav>
+                            
+                              '>
+                                            <img src="/IMG/components/Nav_noexpand.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Nav never expand</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min">
+
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                              <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
+                                <a class="navbar-brand" href="#">Expand at xl</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            
+                                <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li>
+                                    </ul>
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </nav>
+
+                              '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <!-- On a fixed top, next element can be 100vh, since this is out of normal flow-->
+                      <p>Fixed top expand xl</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+                          <a class="navbar-brand" href="#">Navbar</a>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                        
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                <a class="nav-link" href="#">
+                                  <i class="fa fa-home"></i>
+                                  Home
+                                  <span class="sr-only">(current)</span>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                  <i class="fa fa-envelope-o">
+                                    <span class="badge badge-danger">11</span>
+                                  </i>
+                                  Link
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link disabled" href="#">
+                                  <i class="fa fa-envelope-o">
+                                    <span class="badge badge-warning">11</span>
+                                  </i>
+                                  Disabled
+                                </a>
+                              </li>
+                              <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fa fa-envelope-o">
+                                    <span class="badge badge-primary">11</span>
+                                  </i>
+                                  Dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                              </li>
+                            </ul>
+                            <ul class="navbar-nav ">
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                  <i class="fa fa-bell">
+                                    <span class="badge badge-info">11</span>
+                                  </i>
+                                  Test
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                  <i class="fa fa-globe">
+                                    <span class="badge badge-success">11</span>
+                                  </i>
+                                  Test
+                                </a>
+                              </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                          </div>
+                        </nav>
+                      '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Navbar w/ icons</p>
+                    </span>
+                                    </div>
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>Header </h5>
+                                    <!--You can do navbar-expand-lg aswel-->
+                                    <div class="col-min">
+                                        <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                <div class="jumbotron" style="height: calc(100vh - 56px); margin-bottom: 0px;">
+                                    <h1 class="display-3">Hello, world!</h1>
+                                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                                    <hr class="my-2">
+                                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                                    <p class="lead">
+                                      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                                    </p>
+                                </div>
+                              '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Jumbotron</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='  
+                      <div class="parallax-wrapper">
+                        <div class="background background--spring">
+                          <h2 class="title">Spring</h2>
+                        </div>
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Spring</h3>
+                            <p class="season--about">Spring is one of the four conventional temperate seasons, following
+                              winter and preceding summer. There are various technical definitions of spring, but local
+                              usage of the term varies according to local climate, cultures and customs. When it is spring
+                              in the Northern Hemisphere, it is autumn in the Southern Hemisphere and vice versa. At the
+                              spring (or vernal) equinox, days and nights are approximately twelve hours long, with day
+                              length increasing and night length decreasing as the season progresses.</p>
+                          </div>
+                        </section>
+                        <div class="background background--summer">
+                          <h2 class="title">Summer</h2>
+                        </div>
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Summer</h3>
+                            <p class="season--about">Summer is the hottest of the four temperate seasons, falling after
+                              spring and before autumn. At the summer solstice, the days are longest and the nights are
+                              shortest, with day-length decreasing as the season progresses after the solstice. The date
+                              of the beginning of summer varies according to climate, tradition, and culture. When it is
+                              summer in the Northern Hemisphere, it is winter in the Southern Hemisphere, and vice versa.
+                            </p>
+                          </div>
+                        </section>
+                        <div class="background background--fall">
+                          <h2 class="title">Autumn</h2>
+                        </div>
+
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Autumn</h3>
+                            <p class="season--about">Autumn, also known as fall in American English and sometimes in
+                              Canadian English,[1] is one of the four temperate seasons. Autumn marks the transition from
+                              summer to winter, in September (Northern Hemisphere) or March (Southern Hemisphere), when
+                              the duration of daylight becomes noticeably shorter and the temperature cools down
+                              considerably. One of its main features is the shedding of leaves from deciduous trees.</p>
+                          </div>
+                        </section>
+                        <div class="background background--winter">
+                          <h2 class="title">Winter</h2>
+                        </div>
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Winter</h3>
+                            <p class="season--about">Winter is the coldest season of the year in polar and temperate zones
+                              (winter does not occur in most of the tropical zone). It occurs after autumn and before
+                              spring in each year. Winter is caused by the axis of the Earth in that hemisphere being
+                              oriented away from the Sun. Different cultures define different dates as the start of
+                              winter, and some use a definition based on weather. When it is winter in the Northern
+                              Hemisphere, it is summer in the Southern Hemisphere, and vice versa. In many regions, winter
+                              is associated with snow and freezing temperatures.</p>
+                          </div>
+                        </section>
+                      </div>
+                      '>
+                                            <img src="/IMG/components/Nav_noexpand.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Parralax</p>
+                    </span>
+                                    </div>
+
+                                    <div class="col-min">
+                                        <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                <div class="jumbotron bg-success" style="height: 100vh ; margin-bottom: 0px;">
+                                    <h1 class="display-3">Hello, world!</h1>
+                                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                                    <hr class="my-2">
+                                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                                    <p class="lead">
+                                      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                                    </p>
+                                </div>
+                              '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Jmbtrn 100vh</p>
+                    </span>
+
+                                    </div>
+
+                                    <!-- Will have to add the CSS and JS on drop - for now will save them with Client on defualt - BIG TEST HERE-->
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='  
+                    <nav id="navbar" class="">
+                      <div class="dhu12j3"><!--nav-wrapper - removed-->
+                        <!-- Navbar Logo -->
+                        <div class="logo">
+                          <!-- Logo Placeholder for Inlustration -->
+                          <a href="#home"><i class="fab fa-angellist"></i> Logo</a>
+                        </div>
+                    
+                        <!-- Navbar Links -->
+                        <ul id="menu">
+                          <li><a href="#home">Home</a></li><!--
+                       --><li><a href="#services">Services</a></li><!--
+                       --><li><a href="#about">About</a></li><!--
+                       --><li><a href="#contact">Contact</a></li>
+                        </ul>
+                      </div>
+                    </nav>
+                    
+                    <!-- Menu Icon -->
+                    <div class="menuIcon">
+                      <span class="icon icon-bars"></span>
+                      <span class="icon icon-bars overlay"></span>
+                    </div>
+                    
+                    
+                    <div class="overlay-menu">
+                      <ul id="menu">
+                          <li><a href="#home">Home</a></li>
+                          <li><a href="#services">Services</a></li>
+                          <li><a href="#about">About</a></li>
+                          <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    '>
+                                            <img src="">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Da THING</p>
+                    </span>
+                                    </div>
+
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                                <li>
+                                    <h5>Content </h5>
+                                    <!--You can do navbar-expand-lg aswel-->
+                                    <div class="col-min">
+
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="jumbotron">
+                              <h1 class="display-3">Hello, world!</h1>
+                              <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                              <hr class="my-2">
+                              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                              <p class="lead">
+                                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                              </p>
+                          </div>
+                        '>
+                                            <img src="/IMG/components/">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Jumbotron</p>
+                    </span>
+
+                                    </div>
+
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+        <main>
+
+  <div class="view jarallax" style="height: 100vh;">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg" alt="">
+  <div class="mask rgba-blue-slight">
+  <div class="container flex-center text-center">
+  <div class="row mt-5">
+  <div class="col-md-12 col-xl-8 mx-auto wow fadeIn">
+  <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" data-wow-delay="0.3s">Parallax image with a mask and a content</h1>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="container">
+
+  <!--Grid row-->
+  <div class="row my-5 py-4">
+
+  <!--Grid column-->
+  <div class="col-md-12 text-center">
+
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+
+  <p class="mb-0" align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+
+  </div>
+  <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+  </div>
+
+  <div class="view jarallax">
+  <img class="jarallax-img" src="http://mdbootstrap.com/img/Photos/Others/nature4.jpg" alt="">
+  </div>
+
+  <div class="container">
+
+  <!-- Grid row -->
+  <div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-12 text-center">
+
+  <h2 class="h1 font-weight-bold indigo-text my-5 py-4">Different parallax speed</h2>
+
+  </div>
+  <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  </div>
+
+  <div class="jarallax" data-speed="0.2">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/city13.jpg" alt="">
+  </div>
+  <div class="jarallax" data-speed="-0.2">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/images/92.jpg" alt="">
+  </div>
+  <div class="jarallax" data-speed="1.4">
+  <img class="jarallax-img" src="http://mdbootstrap.com/img/Photos/Others/city10.jpg" alt="">
+  </div>
+
+  <div class="container">
+
+  <!-- Grid row -->
+  <div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-12 text-center">
+
+  <h2 class="h1 font-weight-bold pink-text my-5 py-4">Parallax &lt;img&gt; tag</h2>
+
+  </div>
+  <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  </div>
+
+  <div class="grey lighten-4">
+
+  <div class="container pt-5">
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <div class="jarallax-keep-img float-md-left mr-md-4 mb-4 mb-md-0" data-speed="0.5">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img (3).jpg" alt="" width="400">
+  </div>
+
+  <p align="justify">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo dolor in reprehenderit amet.</p>
+
+  <div class="jarallax-keep-img float-md-right ml-md-4 mb-4 mb-md-0" data-speed="0.8">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img (14).jpg" alt="" width="400">
+  </div>
+
+  <p class="mb-0 pb-5" align="justify">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae. Agni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea quibusdam et voluptate velit esse quam nihil ex minus id quod.</p>
+  </div>
+
+  </div>
+
+  <div class="container">
+
+  <!-- Grid row -->
+  <div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-12 text-center">
+
+  <h2 class="h1 font-weight-bold cyan-text my-5 py-4">Youtube Vimeo and &lt;video&gt; parallax</h2>
+
+  </div>
+  <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  </div>
+
+  <div class="jarallax" data-video-src="https://youtu.be/lugard7P0nw"></div>
+  <div class="jarallax" data-speed="0" data-video-src="mp4:video/animation-intro.mp4">
+  <img class="jarallax-img" src="" alt="">
+  </div>
+  <div class="jarallax" data-speed="1.2" data-video-src="https://player.vimeo.com/video/137857207"></div>
+
+  <div class="container">
+
+  <!--Grid row-->
+  <div class="row my-5 py-4">
+
+  <!--Grid column-->
+  <div class="col-md-12 text-center">
+
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+
+  <p class="mb-0" align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+
+  </div>
+  <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+  </div>
+
+  </main>                     
+      '>
+                                            <img src="/IMG/components/Nav_noexpand.svg">
+
+                                        </div>
+                                        <span class="search_me">
+                      <p>Parralax</p>
+                    </span>
+                                    </div>
+
+                                    <br style="clear:both;" />
+                                </li>
+
+                            </ul>
+
+                        </ul>
+
+                    </div>
+
+                </li>
+
+
+                <template>
+          <li data="Fully-Done">
+            <div class="dd-button centerIcon accordion textCenter">
+              <i class="fas fa-cookie"></i><span id="logotext" class="displayNoneB">Fully-Done</span>
+            </div>
+
+            <div class="panel">
+
+              <ul class="dd-menu">
+
+                <!-- <input type="text" id="myInput2" onkeyup="instantSearch()" placeholder="Search for components.." -->
+                  <!-- title="Type in a component" style="width: 100%;"> -->
+
+                <ul id="myUL">
+
+                  <li>
+                    <h5 style="margin-top: 10px;">Navigation ✔️ </h5>
+                    <!--You can do navbar-expand-lg aswel-->
+                    <div class="col-min">
+
+                      <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                        <a class="navbar-brand" href="#">Expand at xl</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    
+                        <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+
+                      '>
+                        <img src="/IMG/components/">
+
+                      </div>
+                      <span class="search_me">
+                        <p>Nav expand xl</p>
+                      </span>
+
+                    </div>
+
+                    <div class="col-min __ml">
+                      <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <nav class="navbar navbar-dark bg-success">
+                        <a class="navbar-brand" href="#">Never expand</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentNV" aria-controls="navbarSupportedContentNV" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    
+                        <div class="collapse navbar-collapse" id="navbarSupportedContentNV">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownNV">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                    
+                      '>
+                        <img src="/IMG/components/Nav_noexpand.svg">
+
+                      </div>
+                      <span class="search_me">
+                        <p>Nav never expand</p>
+                      </span>
+                    </div>
+
+                    <br style="clear:both;" />
+                  </li>
+
+
+
+                </ul>
+
+              </ul>
+
+            </div>
+
+          </li>
+        </template>
+                <!--Bootstrap-->
+
+                <!--Icons -->
+                <!-- Images (Unsplash embeded)-->
+
+
+
+            </ul>
+
+            <!--End of snippet-->
+        </div>
+
+        <div id="column2">
+            <iframe id="clientframe" src="./client/client.html" frameborder="0"></iframe>
+        </div>
+
+        <!-- By just adding displayNone, it starts default closed, all functions working still class="displayNone to column3 to start closed-->
+        <div id="column3">
+
+            <!-- First set on page -->
+            <!-- tab_comment -->
+            <div class="tabs_master">
+                <input type="radio" id="tab1" name="tabs_master" checked/>
+                <input type="radio" id="tab2" name="tabs_master" />
+                <input type="radio" id="tab3" name="tabs_master" disabled />
+
+                <div class="labels" id="mehe">
+                    <label id="tab1L" for="tab1" data-toggle="tooltip" data-trigger="hover" title="Style"><i class="fas fa-paint-brush"></i></label>
+                    <label id="tab2L" for="tab2" data-toggle="tooltip" data-trigger="hover" title="Admin settings"><i class="fas fa-cogs" ></i></label>
+                    <label style="pointer-events: none; opacity: 0.6;" id="tab3L" for="tab3" data-toggle="tooltip" data-trigger="hover" title="Other"><i class="fas fa-users"></i></label>
+                </div>
+
+                <div class="tab_container">
+
+                    <!--If there is no selected element do not display tab1C contents, display Select an element first-->
+                    <div id="tab1C" class="tab_content">
+
+                        <div id="onlyIfElem" class="tabs_tennant displayNone">
+
+                            <div class="tab" id="__tab1">
+
+                                <input type="checkbox" id="chck1" checked>
+                                <label class="tab-label" for="chck1">Element</label>
+                                <div class="tab-content">
+
+                                    <span class="ml__">Tag: </span>&nbsp&nbsp<span id="target_el" class="tag__"></span>
+                                    <br>
+                                    <span class="ml__">ID: </span>&nbsp&nbsp<span id="target_id"></span> <br>
+                                    <span id="classes__" class="ml__">Classes: </span><br>
+
+
+                                    <div id="0-class">
+
+                                        <input class="displayNoneSuper" checked disabled type="checkbox" id="tgl-class-0">
+
+                                        <label id="label_cls0" class="tag__">
+                          
+                            <input type="checkbox" disabled class="toggleChx" /> 
+                            <span id="target_cls0" >Label text</span>
+                                    <button id="del_cls0" class="toggleBtn"> x </button>
+
+                                    </label>
+
+                                    </div>
+
+                                    <div id="1-class">
+
+                                        <input class="displayNoneSuper" checked disabled type="checkbox" id="tgl-class-1">
+
+                                        <label id="label_cls1" class="tag__">
+                          
+                            <input type="checkbox" disabled class="toggleChx" /> 
+                            <span id="target_cls1" >Label text</span>
+                            <button id="del_cls1" class="toggleBtn"> x </button>
+                         
+                        </label>
+
+                                    </div>
+
+                                    <div id="2-class">
+
+                                        <input class="displayNoneSuper" checked disabled type="checkbox" id="tgl-class-2">
+
+                                        <label id="label_cls2" class="tag__">
+                          
+                            <input type="checkbox" disabled class="toggleChx" /> 
+                            <span id="target_cls2" >Label text</span>
+                            <button id="del_cls2" class="toggleBtn"> x </button>
+                         
+                        </label>
+
+                                    </div> <br> &nbsp&nbsp
+
+                                    <div id="saved-value"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="tab" id="__tab5">
+
+                                <input type="checkbox" id="chck5" checked>
+                                <label class="tab-label" for="chck5">Element Actions</label>
+                                <div class="tab-content">
+                                    <!-- Your content here -->
+                                    <span id="element-actions">
+                              <i id="remove-el" class="button fas fa-trash-alt" 
+                                  onclick="if(_target.id !== 'no-remove') _target.remove(); $$('badge_').style.display='none';" data-toggle="tooltip" data-trigger="hover" title="Remove Element"></i>
+                              
+                              <i id="clone-el" class="button fas fa-clone" 
+                                  onclick="_target.parentElement.appendChild(_target.cloneNode(true));" 
+                                  data-toggle="tooltip" 
+                                  data-trigger="hover" 
+                                  title="Clone Element">
+                              </i>
+
+                              <i id="up-el" class="button fas fa-arrow-up" 
+                                  onclick="
+                                    if(_target.previousElementSibling)
+                                      _target.parentNode.insertBefore(_target, _target.previousElementSibling); " 
+                                  data-toggle="tooltip" 
+                                  data-trigger="hover" 
+                                  title="Move up the DOM">
+                              </i>
+
+                              <i id="clone-el" class="button fas fa-arrow-down" 
+                                onclick="if(_target.nextElementSibling)
+                                _target.parentNode.insertBefore(_target.nextElementSibling, _target);" 
+                                data-toggle="tooltip" 
+                                data-trigger="hover" 
+                                title="Move Down the DOM">
+                              </i>
+
+                            </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="tab" id="__tab3">
+
+                                <input type="checkbox" id="chck3" checked>
+                                <label class="tab-label" for="chck3">Computed</label>
+                                <div class="tab-content">
+
+                                    <!-- Your content here -->
+                                    <div id="computed-box" class="computed-box">
+
+                                        <div class="row margin-top-row" name="row-1">
+                                            <div class="col-2 margin border-top border-left">margin</div>
+                                            <div class="col-1 margin border-top"></div>
+                                            <div class="col-1 margin border-top"></div>
+                                            <div class="col-1 margin border-top"><input name="inp" placeholder="-" autocomplete="off" id="margin-top"></div>
+                                            <div class="col-1 margin border-top"></div>
+                                            <div class="col-1 margin border-top"></div>
+                                            <div class="col-1 margin border-top"></div>
+                                            <div class="col-1 margin border-top border-right"></div>
+                                        </div>
+
+                                        <div class="row" name="row-2">
+                                            <div class="col-1 margin  border-left"></div>
+                                            <div class="col-2 border solid-border-top solid-border-left">border</div>
+                                            <div class="col-1 border solid-border-top"></div>
+                                            <div class="col-1 border solid-border-top"><input id="border-top" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 border solid-border-top"></div>
+                                            <div class="col-1 border solid-border-top"></div>
+                                            <div class="col-1 border solid-border-top solid-border-right"></div>
+                                            <div class="col-1 margin border-right"></div>
+                                        </div>
+
+                                        <div class="row" name="row-3">
+                                            <div class="col-1 margin border-left"></div>
+                                            <div class="col-1 border solid-border-left dashed-grey-right"></div>
+                                            <div class="col-2 padding dashed-grey-top nopad">padding</div>
+                                            <div class="col-1 padding dashed-grey-top "><input id="padding-top" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 padding dashed-grey-top "></div>
+                                            <div class="col-1 padding  dashed-grey-top dashed-grey-right"></div>
+                                            <div class="col-1 border solid-border-right"></div>
+                                            <div class="col-1 margin border-right"></div>
+                                        </div>
+
+                                        <div class="row" name="row-4">
+                                            <div class="col-1 margin border-left"><input id="margin-left" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 border solid-border-left dashed-grey-right"><input id="border-left" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 padding  solid-grey-right"><input id="padding-left" name="inp" placeholder="-" autocomplete="off"></div>
+
+                                            <div class="col-1 element solid-grey-top"><input id="myWidth" style="margin-left: -1px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 element solid-grey-top "><input name="inp" placeholder="x" autocomplete="off" disabled></div>
+                                            <div class="col-1 element solid-grey-top solid-grey-right"><input id="myHeight" style="margin-left: -9px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
+
+                                            <div class="col-1 padding dashed-grey-right"><input id="padding-right" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 border solid-border-right "><input id="border-right" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 margin border-right"><input id="margin-right" name="inp" placeholder="-" autocomplete="off"></div>
+                                        </div>
+
+                                        <div class="row" name="row-5">
+                                            <div class="col-1 margin border-left"></div>
+                                            <div class="col-1 border solid-border-left dashed-grey-right"></div>
+                                            <div class="col-1 padding  "></div>
+                                            <div class="col-1 padding  solid-grey-top "></div>
+                                            <div class="col-1 padding  solid-grey-top "><input id="padding-bottom" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 padding  solid-grey-top"></div>
+                                            <div class="col-1 padding  dashed-grey-right"></div>
+                                            <div class="col-1 border solid-border-right"></div>
+                                            <div class="col-1 margin border-right "></div>
+                                        </div>
+
+                                        <div class="row" name="row-6">
+                                            <div class="col-1 margin border-left"></div>
+                                            <div class="col-1 border solid-border-bot solid-border-left"></div>
+                                            <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                            <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                            <div class="col-1 border solid-border-bot dashed-grey-top"><input id="border-bottom" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                            <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                            <div class="col-1 border solid-border-bot solid-border-right"></div>
+                                            <div class="col-1 margin border-right"></div>
+                                        </div>
+
+                                        <div class="row" name="row-7">
+                                            <div class="col-2 margin border-bot border-left"></div>
+                                            <div class="col-1 margin border-bot "></div>
+                                            <div class="col-1 margin border-bot"></div>
+                                            <div class="col-1 margin border-bot"><input id="margin-bottom" name="inp" placeholder="-" autocomplete="off"></div>
+                                            <div class="col-1 margin border-bot"></div>
+                                            <div class="col-1 margin border-bot"></div>
+                                            <div class="col-1 margin border-bot "></div>
+                                            <div class="col-1 margin border-bot border-right"></div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="tab" id="__tab2">
+
+                                <input type="checkbox" id="chck2" checked>
+                                <label class="tab-label" for="chck2">Position</label>
+                                <div class="tab-content">
+
+                                    <!-- Your content here -->
+
+                                    <div>Max-Dimension
+                                        <hr>
+
+                                        <div class="row__">
+                                            <!--Randul I -->
+
+                                            <div class="column__">
+                                                <!-- Col1-->
+
+
+
+                                                <div class="row__">
+                                                    <!--R2 -->
+
+                                                    <div class="column__">
+                                                        <span>max-w</span>
+                                                        <input class="mm__" placeholder="max" name="max-width" id="maxWidth">
+                                                    </div>
+
+                                                    <div class="column">
+                                                        <span>min-w</span>
+                                                        <input class="mm__" placeholder="min" name="min-width" id="minWidth">
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="column__ ml__">
+                                                <!-- Col2-->
+
+
+
+                                                <div class="row__">
+                                                    <!--R2 -->
+                                                    <div class="column__">
+                                                        <span>max-h</span>
+                                                        <input class="mm__" placeholder="max" name="max-height" id="maxHeight">
+                                                    </div>
+                                                    <div class="column__">
+                                                        <span>min-h</span>
+                                                        <input class="mm__" placeholder="min" name="min-height" id="minHeight">
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row__">
+                                            <!--Randul II -->
+
+                                            <div class="column__">
+                                                <span class="faded_m">Rendered as <span id="renderedWidth"></span></span>
+                                            </div>
+
+                                            <div class="column__ ml__">
+                                                <span class="faded_m">Rendered as <span id="renderedHeight"></span></span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!--
+                      <div>Margin<hr>
+                        
+                        <div class="patratel">
+    
+                          <div class="row__ l_" >
+    
+                            <div class="column__"></div>
+    
+                            <div class="column__">
+                              
+                              <input class="wh__" name="margin-top" placeholder="Top" id="margin-top">
+                        
+                            </div>
+    
+                            <div class="column__"></div>
+    
+                          </div>
+                            
+                          <div class="row__ l_">
+    
+                              <div class="column__">
+                                
+                                  <input class="wh__" name="margin-left" id="margin-left" placeholder="Left">
+                            
+                              </div>
+    
+                              <div class="column__"></div>
+      
+                              <div class="column__">
+                                
+                                  <input class="wh__" name="margin-right" id="margin-right" placeholder="Right">
+                            
+                              </div>
+      
+                          </div>
+                          
+                          <div class="row__ l_" > 
+    
+                              <div class="column__"></div>
+      
+                              <div class="column__">
+                                
+                                <input class="wh__" name="margin-bottom" id="margin-bottom" placeholder="Bottom">
+                          
+                              </div>
+      
+                              <div class="column__"></div>
+     
+                          </div>
+    
+                        </div>
+    
+                      </div>
+                       -->
+                                </div>
+
+                            </div>
+
+                            <div class="tab" id="__tab4">
+
+                                <input type="checkbox" id="chck4">
+                                <label class="tab-label" for="chck4">Dom-Tree Viewer</label>
+                                <div class="tab-content">
+
+                                    <!-- Your content here -->
+
+                                </div>
+
+                            </div>
+
+                            <div class="tab" id="__tab5">
+
+                                <input type="checkbox" id="chck5">
+                                <label class="tab-label" for="chck5">Actions</label>
+                                <div class="tab-content">
+
+                                    <!-- Your content here -->
+
+                                </div>
+
+                            </div>
+
+                            <div class="tab" id="__tab6">
+
+                                <input type="checkbox" id="chck6">
+                                <label class="tab-label" for="chck6">Tab6</label>
+                                <div class="tab-content">
+
+                                    <!-- Your content here -->
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <h3 id="selectFirst">Please select an element first.</h3>
+
+                    </div>
+
+                    <!--Admin-->
+                    <div id="tab2C" class="tab_content">
+
+                        <div class="event-listeners">
+                            <h3>Event Listeners</h3>
+                            <hr>
+
+                            <label class="toggle">
+                <p>Hover</p>
+                <span data-toggle="tooltip" data-trigger="hover" title="Toggle Mouseover Event Listener">
+                  <input id="hover-switch" type="checkbox" onclick="toggleHoverListener()" >
+                  <span class="roundbutton" > </span>
+                </span>
+              </label>
+
+                            <label class="toggle">
+                
+                <p>Click</p>
+                <span data-toggle="tooltip" data-trigger="hover" title="Toggle Left-Click Event Listener">
+                  <input id="click-switch" type="checkbox" onclick="toggleClickListener()">
+                  <span class="roundbutton"> </span>
+                </span>
+              </label>
+
+                        </div>
+
+
+                        <!-- The old on/ off switch
+            <button class="button ripple"  onclick="toggleHoverListener()"><span id="listener1" class="led"></span> Hover</button> 
+            <div class="led-green"></div>-->
+
+
+
+                        <h2>Log</h2>
+                        <div id="log-container">
+                            <div id="log"></div>
+                            <button id="clear" onclick="clearLogs()" data-toggle="tooltip" data-trigger="hover" title="Clear Console"><i class="fas fa-eraser"></i></button>
+                        </div>
+
+
+
+                        <div id="tab3C" class="tab_content">
+                            N/A
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+        <footer id="footer">
+
+
+
+            <!--<span id="computed-box-holder">Asta va lua dimenisunile de margin etc</span> -->
+            <span class="tooltiper" id="tooltip1">Hovered elements</span>
+            <span id="snackbar">Turning off/on</span>
+
+            <!--Leaving this here for now -->
+            <div id="resize_bar" class="displayNone displayNoneSuper noSelect">
+
+                <div id="b1" class="__item" onclick=" s320()"><i class="fas fa-mobile-alt">320px</i></div>
+
+                <div id="b2" class="__item" onclick=" s480()"> <i class="fas fa-mobile-alt">480px</i></div>
+
+                <div id="b3" class="__item" onclick=" s768()"><i class="fas fa-tablet-alt">768px</i></div>
+
+                <div id="b4" class="__item" onclick=" s1366()"> <i class="fas fa-laptop">1366px</i></div>
+
+                <div id="b5" class="__item" onclick=" s1920()"><i class="fas fa-desktop">1920px</i></div>
+
+                <div id="live" class="__item"><i> <b>Live<b><div id="iframe_live_wh" class="displayNoneSuper">w & h</div></i></div>
+
+
+            </div>
+
+            <div id="resize_bar2" class="displayNoneSuper">
+
+                <div onclick="hide_previewbar()">
+                    <i id="rotate__me" class="fas fa-chevron-left rotate" style="color: orangered;"></i>
+                </div>
+
+            </div>
+
+
+
+        </footer>
+
+        <script>
+            //To toggle dropdowns from Dom Viewer
+            var toggler = document.getElementsByClassName("caret");
+            var i;
+
+            for (i = 0; i < toggler.length; i++) {
+                toggler[i].addEventListener("click", function() {
+                    this.parentElement.querySelector(".nested").classList.toggle("activelar");
+                    this.classList.toggle("caret-down");
+                });
+            }
+        </script>
+
+        <script>
+            //Create download file with iFrame HTML Code (gibMiData())
+
+            var storyPath = window.location.href;
+            console.API; // Clear console before logging new data
+            if (typeof console._commandLineAPI !== "undefined") {
+                console.API = console._commandLineAPI; //chrome
+            } else if (typeof console._inspectorCommandLineAPI !== "undefined") {
+                console.API = console._inspectorCommandLineAPI; //Safari
+            } else if (typeof console.clear !== "undefined") {
+                console.API = console;
+            }
+
+            // Extracts high level details of current story
+            function gibMiData() {
+                console.API.clear();
+                storyObj = {};
+                storyObj = $("clientframe").contentWindow.document
+                    .documentElement.outerHTML;
+                console.save(storyObj);
+            }
+            console.save = function(data, filename) {
+                if (!data) {
+                    console.error("Console.save: No data");
+                    return;
+                }
+
+                if (!filename) filename = "index.html";
+
+                if (typeof data === "object") {
+                    data = JSON.stringify(data, undefined, 4);
+                }
+
+                var blob = new Blob([data], {
+                        type: "text/json"
+                    }),
+                    e = document.createEvent("MouseEvents"),
+                    a = document.createElement("a");
+
+                a.download = filename;
+                a.href = window.URL.createObjectURL(blob);
+                a.dataset.downloadurl = ["text/json", a.download, a.href].join(":");
+                e.initMouseEvent(
+                    "click",
+                    true,
+                    false,
+                    window,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    false,
+                    false,
+                    false,
+                    false,
+                    0,
+                    null
+                );
+                a.dispatchEvent(e);
+            };
+        </script>
+
+        <!--Test script for obtaining all IDs and classes-->
+        <div id="root"></div>
+        <script id="toggleJs" src="./JS/logic_script.js"></script>
+        <script src="./JS/layout_script.js"></script>
+</body>
+
 </html>
+  

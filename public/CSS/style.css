@@ -1,0 +1,1546 @@
+/*____ LAYOUT UI CSS ____*/
+
+
+/*** BASIC STYLING - body, .row, #column1,2,3 , nav ***/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.row {
+    display: flex;
+    height: calc(100% - 45px);
+    /* Deducting the 45px from the nav to get a pixel perfect*/
+}
+
+#column1 {
+    width: 10%;
+    min-width: 11.5em;
+    color: white;
+    margin-top: 0;
+    padding-top: 0;
+    white-space: nowrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /*Vertical scrollbar - only if items go out of vh*/
+    /*Horizontal scroll - never */
+    background: #222d32;
+    padding: 0;
+}
+
+#column2 {
+    width: 100%;
+    min-width: 9.5em;
+    color: white;
+    margin: 0;
+    padding: 0;
+    z-index: 3;
+    /* Carbon Fibre https://leaverou.github.io/css3patterns/#carbon-fibre*/
+    background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+    background-color: #282828;
+    background-size: 16px 16px;
+}
+
+#column3 {
+    margin-top: -45px;
+    /* faking it over the top bar*/
+    width: 12%;
+    min-width: 15.5em;
+    /* outline: 2px solid brown;
+  outline-offset: -2px; */
+    color: white;
+    /*padding: 0px 10px 0px 10px; */
+    background: #222d32;
+    overflow-y: auto;
+    z-index: 2;
+}
+
+.ease {
+    transition-timing-function: ease;
+    transition: all 0.4s;
+}
+
+.column1_mini {
+    width: 3% !important;
+    min-width: 4em !important;
+    /* transition: all 0.6s;*/
+}
+
+
+/*Nav*/
+
+nav {
+    height: 45px;
+    width: 100%;
+    /*Floats over first 5%vh of column1*/
+    display: flex;
+    color: white;
+}
+
+nav #nav-left {
+    width: 10%;
+    min-width: 11.5em;
+    background: #357ca5;
+    float: left;
+}
+
+nav #nav-right {
+    width: 100%;
+    min-width: 9.5em;
+    z-index: 1;
+    background: #3c8dbc;
+    float: left;
+}
+
+nav #nav-right #left {
+    padding: 8px;
+}
+
+nav #right_3 {
+    width: 12%;
+    min-width: 15.5em;
+    background: red;
+    float: left;
+}
+
+nav #col3Panel {
+    width: 10%;
+    min-width: 248px;
+    z-index: 1;
+    background: red;
+    /*To be obvious*/
+    float: left;
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+    display: none;
+}
+
+nav #nav-right i {
+    padding: 6px;
+    /*From here you set the size of ADMIN BUTTONS*/
+}
+
+nav #nav-left i {
+    padding: 12px 21px 12px 18px;
+    font-size: 22px;
+    display: inline-block;
+    color: orange;
+}
+
+nav #nav-left span {
+    margin-left: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    /*MUST HAVE - otherwise creates weird space after - FIXED*/
+    display: block;
+    background: rgb(255, 255, 255);
+}
+
+.iframe_loader {
+    background: url(../IMG/Spinner200px.gif) center center no-repeat;
+    /*Doesn't seem to work*/
+}
+
+
+/*** END - BASE STYLING ***/
+
+
+/** SPECIFIC ELEMENTS **/
+
+h4 {
+    margin-top: 0;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 10px;
+}
+
+h5 {
+    margin-top: 0;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 5px;
+}
+
+button.panel3 {
+    background-color: Crimson;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+button.panel3:hover {
+    /*could add before it button:focus, */
+    background-color: FireBrick;
+    color: White;
+}
+
+button.panel3:focus {
+    outline: 0;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 30px;
+    font-size: 17px;
+    z-index: 99999;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.tooltiper {
+    position: absolute;
+    margin: 5px;
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+    display: none;
+    background: #3299cc;
+    bottom: 15px;
+    right: 250px;
+    color: white;
+    z-index: 3;
+}
+
+
+/** END - SPECIFIC ELEMENTS **/
+
+
+/** OTHER HELPERS **/
+
+.outline-blue {
+    outline: 3px solid blue;
+    outline-offset: -2px;
+}
+
+.show {
+    display: block;
+}
+
+.active {
+    background: #1e282c;
+}
+
+#burger {
+    cursor: pointer;
+    color: white;
+}
+
+nav i {
+    color: black;
+}
+
+#right {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.after_view {
+    color: red !important;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.fullheight {
+    height: 100vh !important;
+}
+
+.displayNone {
+    display: none;
+}
+
+.displayNoneSuper {
+    display: none !important;
+}
+
+.displayNoneB {
+    /*Minify span text and icons*/
+    display: block;
+    font-size: 9px;
+    transition-timing-function: ease;
+    transition: all 0.4s;
+}
+
+span#logotext.displayNoneB {
+    margin: auto;
+}
+
+a:active {
+    background: red;
+}
+
+
+/*End of helpers */
+
+
+/* RESIZE Buttons */
+
+
+/*unshrinkCol2 este in minime*/
+
+#resize_bar2 {
+    position: absolute;
+    text-align: center;
+    z-index: 9;
+    text-align: center;
+    left: 370px;
+    bottom: 0;
+    font-size: 26px;
+    display: block;
+}
+
+#resize_bar {
+    position: fixed;
+    text-align: center;
+    z-index: 9;
+    text-align: center;
+    left: 0px;
+    bottom: 9px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 35px;
+    padding: 3px;
+}
+
+#resize_bar i {
+    color: #000;
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+#resize_bar i::before {
+    display: block;
+    font-size: 11px;
+    color: #002;
+    padding-bottom: 2px;
+    font-size: 15px;
+}
+
+.go_left {
+    transform: translate(-350px);
+}
+
+.rotate {
+    -moz-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.rotate.down__me {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+/* END OF RESIZE*/
+
+.__outliner1 {
+    outline: 2px solid red !important;
+    border-color: lime !important;
+    border: 2px solid violet !important;
+}
+
+
+/*** END - OTHER HELPERS ***/
+
+
+/*** DROPDOWN LIST COL1 ***/
+
+.dd-button {
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 20px;
+    color: #d2d6de;
+}
+
+.dd-button span {
+    margin-left: 15px;
+}
+
+.dd-button:hover {
+    background: #2c3b41;
+    color: white;
+}
+
+.dd-button:checked {
+    background: red;
+    color: white;
+}
+
+.dd-input {
+    display: none;
+}
+
+.dd-menu {
+    padding: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    max-height: calc(100% - 45px);
+}
+
+.dd-menu ul li a span {
+    margin-left: 10px;
+}
+
+.dd-input:checked+.dd-menu {
+    /* checked means click. hover is on hover*/
+    display: block;
+}
+
+.dd-input+.dd-menu {
+    /*Initial display of li set to none*/
+    display: none;
+}
+
+.dd-menu li {
+    padding: 0px 20px;
+    /* cursor: pointer; */
+    background: #2c3b41;
+    display: block;
+    color: white;
+}
+
+.dd-menu li span {
+    color: #767676;
+    pointer-events: none;
+    margin-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+#myUL {
+    display: block !important;
+}
+
+.dd-menu li span p {
+    margin-top: 3px;
+}
+
+.dd-menu li div:hover {
+    content: attr(draggable);
+    filter: brightness(150%);
+}
+
+.dd-menu li.divider {
+    padding: 0;
+    border-bottom: 1px solid #1e282c;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dd-menu a {
+    text-decoration: none;
+}
+
+
+/** END **/
+
+#loGo {
+    z-index: 99999;
+    opacity: 1;
+}
+
+
+/****** TABS COLUMN3 ******/
+
+
+/*Tabs*/
+
+.tabs_overlord {
+    max-width: 800px;
+    margin-top: 20px;
+    margin-left: -10px;
+    padding-right: 20px;
+    width: 14.53rem;
+}
+
+.tabs_overlord input {
+    display: none;
+}
+
+.tabs_overlord .content {
+    width: 14.53rem;
+}
+
+.tabs_overlord label {
+    display: inline-block;
+    padding: 6px 0 6px 0;
+    margin-left: -1px;
+    width: 32%;
+    /* =100/tabs number */
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-size: 12px;
+}
+
+.tabs_overlord label:hover {
+    cursor: pointer;
+}
+
+.tabs_overlord input:checked+label {
+    border: 1px solid #000;
+    border-width: 1px 1px 0 1px;
+}
+
+.tabs_overlord #tab1:checked~.content #content1,
+.tabs_overlord #tab2:checked~.content #content2,
+.tabs_overlord #tab3:checked~.content #content3 {
+    display: block;
+}
+
+.tabs_overlord .content>div {
+    display: none;
+    padding-top: 20px;
+    text-align: left;
+    overflow: auto;
+}
+
+
+/* End of Tabs */
+
+
+/* CSS ONLY ACCORDION  color: #2c3e50;
+  background: #ecf0f1;*/
+
+
+/* Accordion styles */
+
+.tabs_tennant {
+    overflow: hidden;
+}
+
+.tabs_tennant .tab {
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.tabs_tennant .tab-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    border: none;
+    margin: none;
+    padding-right: 1.5em;
+    /* background: #2c3e50; */
+    background: rgb(61, 61, 61);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    /* Icon */
+}
+
+.tabs_tennant .tab-label:hover {
+    background: #1a252f;
+}
+
+.tabs_tennant .tab-label::after {
+    content: "\276F";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+}
+
+.tabs_tennant .tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    background: #282828;
+    color: #898989;
+    transition: all 0.35s;
+}
+
+.tab-content p {
+    margin-bottom: 0px;
+}
+
+.tabs_tennant .tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: #2c3e50;
+}
+
+.tabs_tennant .tab-close:hover {
+    background: #1a252f;
+}
+
+.tabs_tennant input:checked+.tab-label {
+    background: #1a252f;
+}
+
+.tabs_tennant input:checked+.tab-label::after {
+    transform: rotate(90deg);
+}
+
+.tabs_tennant input:checked~.tab-content {
+    max-height: 100vh;
+    padding: 0.5em;
+    padding-right: 1.5em;
+    /*padding-bottom: 0px;*/
+}
+
+
+/* Others */
+
+.faded_m {
+    color: #646464 !important;
+    margin: 10px 0 10px 0;
+}
+
+#iframe_live_wh {
+    z-index: 99999999;
+    color: whitesmoke;
+    outline: 1px solid black;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+
+/*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
+Needed for Menu SVGS */
+
+img {
+    border: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*! CSS Used from: https://cdn.froont.com/_static/gen/backend.4d31e8f.css */
+
+.library-widget:hover .library-widget-thumbnail:after {
+    opacity: 1;
+}
+
+.library-widget-thumbnail {
+    position: relative;
+    overflow: hidden;
+    cursor: -webkit-grab;
+    cursor: grab;
+    width: 100px;
+    height: 57px;
+    background: #333;
+    border: 1px solid #b3b3b3;
+    border-radius: 2px;
+    -webkit-transition: border-color 2s ease;
+    transition: border-color 2s ease;
+    text-align: center !important;
+    font-size: 0 !important;
+}
+
+.library-widget-thumbnail:after {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(179, 179, 179, 0.06);
+    border-radius: 2px;
+    opacity: 0;
+    -webkit-transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease;
+}
+
+.library-widget-thumbnail img {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.library-widget-thumbnail:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#b-control-elements div {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.noSelect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+:focus {
+    outline: 0;
+    outline: none;
+    outline-style: none;
+    outline-color: transparent;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.__selector1 {
+    border: 2px solid red;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #2c3b41;
+}
+
+.panel {
+    padding: 0;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+div.panel {
+    display: none;
+}
+
+div.panel.show {
+    display: block !important;
+}
+
+
+/* For  Mobile Device Resizing icons */
+
+.__item {
+    vertical-align: top;
+    text-align: center;
+    width: 50px;
+    background: gray;
+    outline: 2px black solid;
+    overflow: hidden;
+}
+
+#live {
+    vertical-align: top;
+    text-align: center;
+    width: 80px;
+    background: gray;
+    outline: 2px black solid;
+    overflow: hidden;
+}
+
+div.__item {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.caption {
+    display: block;
+    font-size: 11px;
+}
+
+.s320 {
+    max-width: 320px !important;
+    margin: auto !important;
+    outline: 2px purple solid;
+    outline-offset: -2px;
+}
+
+.s480 {
+    max-width: 480px !important;
+    margin: auto !important;
+    outline: 2px purple solid;
+    outline-offset: -2px;
+}
+
+.s768 {
+    max-width: 768px !important;
+    margin: auto !important;
+    outline: 2px purple solid;
+    outline-offset: -2px;
+}
+
+.s1366 {
+    max-width: 1366px !important;
+    margin: auto !important;
+    outline: 2px purple solid;
+    outline-offset: -2px;
+}
+
+.s1920 {
+    max-width: 1920px !important;
+    margin: auto !important;
+    outline: 2px purple solid;
+    outline-offset: -2px;
+}
+
+.active__u {
+    transition: 0.65s;
+    /*outline: 2px purple solid;
+  outline-offset: -2px;  Will make buttons seem smaller when touched*/
+    z-index: 999999;
+    background: orangered;
+}
+
+.inactive {
+    outline: none;
+    background: inherit;
+}
+
+.row__ {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column__ {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.column__ i {
+    font-size: 18px;
+    margin: 0px 5px 5px 0;
+}
+
+.column__ input.wh__ {
+    width: 45px;
+    height: 23px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: rgb(25, 25, 25);
+    color: rgb(235, 197, 0);
+    display: block;
+    border: 0px;
+    z-index: 0;
+}
+
+.column__ input.mm__ {
+    height: 13px;
+    width: 45px;
+    padding: 1px;
+    margin-right: 5px;
+    color: rgb(235, 197, 0);
+    background-color: rgb(25, 25, 25);
+    display: block;
+    border: 0px;
+}
+
+.ml__ {
+    margin-right: -10px;
+    margin-left: 5px;
+}
+
+.tag__ {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    width: 110px;
+    height: 14px;
+    background: #804f7b;
+    color: white;
+    text-align: center;
+}
+
+#target_cls,
+#target_cls0,
+#target_cls1,
+#target_cls2 {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+.patratel {
+    outline: 2px gray solid;
+    outline-offset: -35px;
+    z-index: -1;
+    height: 117px;
+}
+
+.patrat {
+    outline: 2px gray solid;
+    z-index: -1;
+    width: 220px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+#computed-box-holder {
+    position: absolute;
+    bottom: 150px;
+    left: 150px;
+    z-index: 99999999;
+    outline: 1px red solid;
+}
+
+#tab2C {
+    padding: 10px;
+}
+
+
+/*
+  ======================
+        COMPUTED BOX 
+  ======================
+
+*/
+
+.computed-box {
+    width: 220px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.computed-box .row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button {
+    /*height: 36px; */
+    background-color: #153a50;
+    margin: 3px;
+    color: #fff;
+    border: 0;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    vertical-align: middle;
+    overflow: hidden;
+    cursor: pointer;
+    outline: 0;
+    z-index: 1;
+    transition: all .15s ease-in;
+}
+
+.button:hover {
+    opacity: 0.7;
+}
+
+#admin-buttons {
+    float: right;
+    margin-right: 250px;
+    padding: 5px 0;
+}
+
+.admin-buttons i {
+    cursor: pointer;
+}
+
+#element-actions {
+    /* float: left; */
+    /* width: 100%; */
+    z-index: 1;
+}
+
+#element-actions i {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    float: left;
+    display: block;
+}
+
+.noMarginRight {
+    margin-right: 0px !important;
+}
+
+.event-listeners {
+    margin: 10px 0;
+}
+
+
+/*Toggle*/
+
+.toggle {
+    margin: 4px;
+    position: relative;
+    display: block;
+    width: 2.9rem;
+    height: 1.3rem;
+    font-size: 90%;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle p {
+    font-weight: 600;
+}
+
+.roundbutton {
+    position: absolute;
+    margin-left: 30px;
+    top: 0;
+    left: 20px;
+    ;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: #33455e;
+    display: block;
+    transition: all 0.3s;
+    border-radius: 3.7rem;
+    cursor: pointer;
+}
+
+.roundbutton:before {
+    position: absolute;
+    content: "";
+    height: 1.1rem;
+    width: 1.1rem;
+    border-radius: 100%;
+    display: block;
+    left: 0.1rem;
+    bottom: 0.1rem;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+input:checked+.roundbutton {
+    background-color: green;
+}
+
+input:checked+.roundbutton:before {
+    transform: translate(1.6rem, 0);
+}
+
+@-webkit-keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: .5;
+    }
+    100% {
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+    }
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: .5;
+    }
+    100% {
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+    }
+}
+
+.ripple:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: currentColor;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.ripple:not(:active):before {
+    -webkit-animation: ripple 0.4s cubic-bezier(0, 0, 0.2, 1);
+    animation: ripple 0.4s cubic-bezier(0, 0, 0.2, 1);
+    transition: visibility .4s step-end;
+}
+
+.ripple:active:before {
+    visibility: visible;
+}
+
+.led {
+    margin-right: 8px;
+    margin-left: -12px;
+    margin-top: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #A90;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;
+    float: left;
+}
+
+#log-container {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    overflow: auto;
+    height: 150px;
+    width: 248px;
+    background: black;
+    word-wrap: break-word;
+}
+
+.time-string {
+    color: orange !important;
+}
+
+#log {
+    padding: 3px;
+    font-size: 12px;
+}
+
+#clear {
+    position: fixed;
+    bottom: 28px;
+    right: 10px;
+    opacity: 0.5;
+    background: transparent;
+    border: 0;
+    color: green;
+    font-weight: 700;
+    font-size: 110%;
+    z-index: 999;
+}
+
+#clear:hover {
+    opacity: 0.9;
+}
+
+.log-warn {
+    color: orange
+}
+
+.log-error {
+    color: red
+}
+
+.log-info {
+    color: skyblue
+}
+
+.log-log {
+    color: silver
+}
+
+.log-warn,
+.log-error {
+    font-weight: bold;
+}
+
+
+/* content */
+
+.computed-box .row div {
+    /* background-color: #EF5350;*/
+    padding: 1.5%;
+    /* border: 1px solid white; Remove this and it becomes unified squares */
+    /*border-radius: 5px;*/
+    text-align: right;
+    color: black;
+    transition: background-color 1s;
+    font-size: 0.9em;
+}
+
+.neutral {
+    background-color: white !important;
+}
+
+input[name="inp"] {
+    background: transparent;
+    border: none;
+    font-size: 11px;
+    text-align: center;
+    outline: none;
+    width: 15px;
+    font-size: 0.9em;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+    font-weight: 800;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+    font-weight: 800;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
+    font-weight: 800;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+    font-weight: 800;
+}
+
+.nopad {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+/*Colors*/
+
+.margin {
+    background: #F9CC9D;
+}
+
+.border {
+    background: #FADF9A;
+}
+
+.padding {
+    background: #C3D08B;
+}
+
+.element {
+    background: #8EB7BB;
+}
+
+.border-bot {
+    border-bottom: 1px dashed black !important;
+}
+
+.border-right {
+    border-right: 1px dashed black !important;
+}
+
+.border-left {
+    border-left: 1px dashed black !important;
+}
+
+.border-top {
+    border-top: 1px dashed black !important;
+}
+
+.solid-border-top {
+    border-top: 1px solid black !important;
+}
+
+.solid-border-bot {
+    border-bottom: 1px solid black !important;
+}
+
+.solid-border-right {
+    border-right: 1px solid black !important;
+}
+
+.solid-border-left {
+    border-left: 1px solid black !important;
+}
+
+.dashed-grey-top {
+    border-top: 1px dashed grey !important;
+}
+
+.dashed-grey-right {
+    border-right: 1px dashed grey !important;
+}
+
+.solid-grey-top {
+    border-top: 1px solid grey !important;
+}
+
+.solid-grey-right {
+    border-right: 1px solid grey !important;
+}
+
+
+/* 1/12 */
+
+.col-1 {
+    width: 21px;
+}
+
+
+/* 2/12 */
+
+.col-2 {
+    width: 42px;
+}
+
+
+/* ===================== */
+
+#mehe {
+    box-shadow: -10px 0px 10px 1px black;
+}
+
+
+/* ************ NEW MASTER TABS *************** */
+
+.tabs_master>.labels>label {
+    height: 45px;
+    width: 33.333%;
+    /*Number of Label tabs*/
+    background-color: rgb(21, 58, 80);
+    /* background-color: #ddd;*/
+    /* border-radius: 0 1em 0 0;     rgb(60, 141, 188)    #28363d*/
+    color: rgb(60, 141, 188);
+    font-weight: bold;
+    /*text-shadow:#aaa -1px -1px;  */
+    cursor: pointer;
+    float: left;
+    overflow: hidden;
+    padding: 15px 15px;
+    text-align: center;
+    position: relative;
+    /*border-bottom: .2em solid #45a6e7;  Can remove it or add it to entire tabs*/
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.tabs_master>.labels>label:hover {
+    background-color: #357ca5;
+    color: white;
+}
+
+input#tab1:checked~.labels>label[for="tab1"],
+input#tab2:checked~.labels>label[for="tab2"],
+input#tab3:checked~.labels>label[for="tab3"] {
+    /*background-color: #45a6e7; */
+    background: #222D32;
+    color: whitesmoke;
+}
+
+.tabs_master>.labels>label a {
+    color: inherit;
+}
+
+.tab_container {
+    clear: both;
+    overflow: auto;
+    width: 100%;
+    /* padding: 1em 0 1em 0; */
+}
+
+.tabs_master>input[type="radio"],
+.tabs_master .tab_content {
+    display: none;
+}
+
+input[name="tabs"]:checked~.tab_container>.notAvailable {
+    display: none;
+}
+
+input#tab1:checked~.tab_container>#tab1C,
+input#tab2:checked~.tab_container>#tab2C,
+input#tab3:checked~.tab_container>#tab3C {
+    display: block;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+
+/*CHECKBOX INPUT */
+
+.l_ {
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+#selectFirst {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+
+/*Mini checkboxes */
+
+.tab-content label {
+    /*padding-left: 15px;*/
+    text-indent: -15px;
+}
+
+.tab-content .toggleChx {
+    width: 13px;
+    height: 19px;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    top: 3px;
+    *overflow: hidden;
+}
+
+.toggleChx {
+    display: inline-block !important;
+    transform: scale(0.7);
+    border: none;
+}
+
+button.toggleBtn {
+    transform: scale(0.7);
+    display: inline-block !important;
+    border: none;
+    color: maroon;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 22px !important;
+    background: transparent;
+    width: 13px;
+    height: 19px;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    position: relative;
+    top: -4px;
+}
+
+
+/*End of mini chk*/
+
+
+/*end of that */
+
+
+/*Tooltip global*/
+
+.tooltip-text {
+    background-color: rgba(0, 0, 0, .7);
+    color: white;
+    left: 0;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+}
+
+
+/*Done */
+
+
+/* SCROLLBAR CSS*/
+
+#log-container::-webkit-scrollbar {
+    background-color: black;
+    width: 16px
+}
+
+
+/* background of the scrollbar except button or resizer */
+
+#log-container::-webkit-scrollbar-track {
+    background-color: black
+}
+
+#log-container::-webkit-scrollbar-track:hover {
+    background-color: black
+}
+
+
+/* scrollbar itself */
+
+#log-container::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 1%, 17%, 0.582);
+    border-radius: 16px;
+    border: 5px solid black
+}
+
+#log-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(121, 121, 121);
+}
+
+
+/* set button(top and bottom of the scrollbar) */
+
+#log-container::-webkit-scrollbar-button {
+    display: none
+}
+
+
+/*____END - LAYOUT UI CSS____*/

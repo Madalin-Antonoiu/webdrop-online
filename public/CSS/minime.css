@@ -1,0 +1,80 @@
+/*With click disabled        +.dd-menu    to hide the chekbox*/
+.dd-input:checked {
+    display: block;
+}
+
+/* To hover - set display block to make it hoverable and display: none to checked
+.dd-input:hover+.dd-menu {
+   
+    display: none;
+} */
+
+.dd-menu {
+    /*add following 5 lines on mini-version and make .dd-input:hover ----------------------------------   */
+    position: absolute;
+    left: 63px;
+    top: 43px;
+    z-index: 99999;
+    height: 100%;
+    padding: 0;
+    margin: 2px 0 0 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+    list-style-type: none;
+    overflow-y: scroll;
+    background: #2C3B41;
+    width: 269px;
+
+
+}
+
+.dd-menu li div {
+    margin-top: 0px;
+}
+
+.col-min {
+    float: left;
+}
+
+
+.__ml {
+    margin-left: 10px;
+}
+
+h4 {
+    margin-bottom: 0;
+}
+
+/*Colors parent on li a hover - Works!
+.selector:hover .dd-button {
+    background: #2C3B41;
+    color: white;
+}*/
+
+/*Colors parent on li a CLICKED - Works!*/
+
+
+
+.dd-button {
+
+    padding: 5px !important;
+    font-size: 17px !important;
+}
+
+/* Push over column2
+#column1:hover ~ #column2 {
+    transform: translateX(272px);
+    transition-duration: 0.3s;
+    width: 82.5%;
+}*/
+
+/*This does the shinking based on accordion open, else remove.ClassName */
+.shrinkCol2 {
+    transform: translateX(272px);
+    max-width: calc(100% - 335px);
+}
+
+/* Spent like an hour for this. basically when minimenu open with components and i go preview, looks ok. So does when it is closed :) */
+.unshrinkCol2{
+    transform: translateX(0px) !important;
+    max-width: 100% !important;
+  }
